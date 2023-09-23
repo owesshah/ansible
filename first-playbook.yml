@@ -1,0 +1,17 @@
+---
+- name: Install nginx and Start nginx
+  hosts: my_single_server
+  become: true
+
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Start nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes  # Ensure Nginx starts at boot
+
